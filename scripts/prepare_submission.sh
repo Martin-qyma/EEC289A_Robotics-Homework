@@ -71,25 +71,36 @@ fi
 # Training logs (Colab-equivalent stdout + per-stage progress JSONs).
 # Pulls from the same RUN_DIR that owns best_checkpoint/, plus optional
 # previous-phase dirs and /tmp stdout files if they exist.
-mkdir -p "$OUT/training_logs/stdout"
+mkdir -p "$OUT/colab_output/stdout"
 copy_stage_logs() {
   local src_dir="$1" dst_subdir="$2"
   [[ -d "$src_dir" ]] || return 0
-  mkdir -p "$OUT/training_logs/$dst_subdir"
+  mkdir -p "$OUT/colab_output/$dst_subdir"
   for f in progress.json summary.json resolved_config.json latest_metrics.json; do
-    [[ -e "$src_dir/$f" ]] && cp "$src_dir/$f" "$OUT/training_logs/$dst_subdir/$f"
+    [[ -e "$src_dir/$f" ]] && cp "$src_dir/$f" "$OUT/colab_output/$dst_subdir/$f"
   done
 }
 copy_stage_logs artifacts/run_extended/stage_1     stage_1
 copy_stage_logs artifacts/run_extended/stage_2     stage_2_v1
 copy_stage_logs "$RUN_DIR/stage_2"                 stage_2_v2
 [[ -e artifacts/run_extended/run_metadata.json ]] && \
-  cp artifacts/run_extended/run_metadata.json "$OUT/training_logs/run_metadata_phase1.json"
+  cp artifacts/run_extended/run_metadata.json "$OUT/colab_output/run_metadata_phase1.json"
 [[ -e "$RUN_DIR/run_metadata.json" ]] && \
-  cp "$RUN_DIR/run_metadata.json" "$OUT/training_logs/run_metadata_phase2.json"
+  cp "$RUN_DIR/run_metadata.json" "$OUT/colab_output/run_metadata_phase2.json"
 for log in /tmp/train.log /tmp/train_v2.log /tmp/public_rollout.log /tmp/custom_eval.log; do
-  [[ -e "$log" ]] && cp "$log" "$OUT/training_logs/stdout/$(basename "$log")"
+  [[ -e "$log" ]] && cp "$log" "$OUT/colab_output/stdout/$(basename "$log")"
 done
+
+# Mirror evaluation result JSONs into colab_output/eval_results/ (these are
+# already at submission/public_eval_bundle/ + submission/custom_eval/, but
+# the "Colab output" deliverable wants them grouped together).
+mkdir -p "$OUT/colab_output/eval_results"
+[[ -e artifacts/public_eval_bundle/public_eval.json ]] && \
+  cp artifacts/public_eval_bundle/public_eval.json "$OUT/colab_output/eval_results/"
+[[ -e artifacts/public_eval_bundle/rollout_summary.json ]] && \
+  cp artifacts/public_eval_bundle/rollout_summary.json "$OUT/colab_output/eval_results/"
+[[ -e artifacts/custom_eval/custom_eval.json ]] && \
+  cp artifacts/custom_eval/custom_eval.json "$OUT/colab_output/eval_results/"
 
 # Create a tar.gz for upload
 TAR="$OUT.tar.gz"

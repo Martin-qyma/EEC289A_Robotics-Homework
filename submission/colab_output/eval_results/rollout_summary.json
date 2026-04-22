@@ -1,0 +1,20 @@
+{
+  "checkpoint_dir": "/home/qiyaoma/eec289_hw1/artifacts/run_extended_v2/best_checkpoint",
+  "stage_name": "stage_2",
+  "num_episodes": 4,
+  "episode_length_steps": 1500,
+  "episode_lengths_realized": [
+    1500,
+    1500,
+    1500,
+    1500
+  ],
+  "episode_labels": [
+    "forward_only",
+    "lateral_only",
+    "yaw_only",
+    "combined"
+  ],
+  "rollout_npz": "/home/qiyaoma/eec289_hw1/artifacts/public_eval_bundle/rollout_public_eval.npz",
+  "video_path": "/home/qiyaoma/eec289_hw1/artifacts/public_eval_bundle/public_eval_episode0.mp4"
+}
