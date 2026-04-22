@@ -68,6 +68,29 @@ if [[ -d artifacts/custom_eval ]]; then
   cp -r artifacts/custom_eval/. "$OUT/custom_eval/"
 fi
 
+# Training logs (Colab-equivalent stdout + per-stage progress JSONs).
+# Pulls from the same RUN_DIR that owns best_checkpoint/, plus optional
+# previous-phase dirs and /tmp stdout files if they exist.
+mkdir -p "$OUT/training_logs/stdout"
+copy_stage_logs() {
+  local src_dir="$1" dst_subdir="$2"
+  [[ -d "$src_dir" ]] || return 0
+  mkdir -p "$OUT/training_logs/$dst_subdir"
+  for f in progress.json summary.json resolved_config.json latest_metrics.json; do
+    [[ -e "$src_dir/$f" ]] && cp "$src_dir/$f" "$OUT/training_logs/$dst_subdir/$f"
+  done
+}
+copy_stage_logs artifacts/run_extended/stage_1     stage_1
+copy_stage_logs artifacts/run_extended/stage_2     stage_2_v1
+copy_stage_logs "$RUN_DIR/stage_2"                 stage_2_v2
+[[ -e artifacts/run_extended/run_metadata.json ]] && \
+  cp artifacts/run_extended/run_metadata.json "$OUT/training_logs/run_metadata_phase1.json"
+[[ -e "$RUN_DIR/run_metadata.json" ]] && \
+  cp "$RUN_DIR/run_metadata.json" "$OUT/training_logs/run_metadata_phase2.json"
+for log in /tmp/train.log /tmp/train_v2.log /tmp/public_rollout.log /tmp/custom_eval.log; do
+  [[ -e "$log" ]] && cp "$log" "$OUT/training_logs/stdout/$(basename "$log")"
+done
+
 # Create a tar.gz for upload
 TAR="$OUT.tar.gz"
 tar -czf "$TAR" "$OUT"

@@ -1,0 +1,41 @@
+[ 1/29]        stand  |err vx|=0.009  |err vy|=0.010  |err yaw|=0.053  fell=False
+[ 2/29]      +vx=0.2  |err vx|=0.154  |err vy|=0.021  |err yaw|=0.068  fell=False
+[ 3/29]      +vx=0.4  |err vx|=0.057  |err vy|=0.027  |err yaw|=0.090  fell=False
+[ 4/29]      +vx=0.6  |err vx|=0.075  |err vy|=0.033  |err yaw|=0.085  fell=False
+[ 5/29]      +vx=0.8  |err vx|=0.131  |err vy|=0.039  |err yaw|=0.073  fell=False
+[ 6/29]      +vx=1.0  |err vx|=0.237  |err vy|=0.052  |err yaw|=0.082  fell=False
+[ 7/29]      vx=-0.2  |err vx|=0.200  |err vy|=0.011  |err yaw|=0.057  fell=False
+[ 8/29]      vx=-0.4  |err vx|=0.403  |err vy|=0.012  |err yaw|=0.060  fell=False
+[ 9/29]      vx=-0.6  |err vx|=0.603  |err vy|=0.014  |err yaw|=0.060  fell=False
+[10/29]      vx=-0.8  |err vx|=0.800  |err vy|=0.011  |err yaw|=0.068  fell=False
+[11/29]      vx=-1.0  |err vx|=1.000  |err vy|=0.011  |err yaw|=0.059  fell=False
+[12/29]      +vy=0.1  |err vx|=0.010  |err vy|=0.102  |err yaw|=0.056  fell=False
+[13/29]      +vy=0.2  |err vx|=0.009  |err vy|=0.200  |err yaw|=0.062  fell=False
+[14/29]      +vy=0.3  |err vx|=0.010  |err vy|=0.301  |err yaw|=0.048  fell=False
+[15/29]      +vy=0.4  |err vx|=0.010  |err vy|=0.402  |err yaw|=0.035  fell=False
+[16/29]      vy=-0.1  |err vx|=0.010  |err vy|=0.100  |err yaw|=0.056  fell=False
+[17/29]      vy=-0.2  |err vx|=0.011  |err vy|=0.200  |err yaw|=0.056  fell=False
+[18/29]      vy=-0.3  |err vx|=0.014  |err vy|=0.302  |err yaw|=0.047  fell=False
+[19/29]      vy=-0.4  |err vx|=0.012  |err vy|=0.402  |err yaw|=0.039  fell=False
+[20/29]     +yaw=0.3  |err vx|=0.011  |err vy|=0.011  |err yaw|=0.287  fell=False
+[21/29]     +yaw=0.6  |err vx|=0.009  |err vy|=0.008  |err yaw|=0.590  fell=False
+[22/29]     +yaw=0.8  |err vx|=0.009  |err vy|=0.010  |err yaw|=0.801  fell=False
+[23/29]     +yaw=1.0  |err vx|=0.010  |err vy|=0.010  |err yaw|=1.005  fell=False
+[24/29]     yaw=-0.3  |err vx|=0.010  |err vy|=0.012  |err yaw|=0.278  fell=False
+[25/29]     yaw=-0.6  |err vx|=0.010  |err vy|=0.010  |err yaw|=0.585  fell=False
+[26/29]     yaw=-0.8  |err vx|=0.009  |err vy|=0.014  |err yaw|=0.787  fell=False
+[27/29]     yaw=-1.0  |err vx|=0.010  |err vy|=0.014  |err yaw|=0.999  fell=False
+[28/29]       combo+  |err vx|=0.401  |err vy|=0.200  |err yaw|=0.599  fell=False
+[29/29]       combo-  |err vx|=0.404  |err vy|=0.204  |err yaw|=0.601  fell=False
+{
+  "checkpoint_dir": "/home/qiyaoma/eec289_hw1/artifacts/run_extended/best_checkpoint",
+  "stage_name": "stage_2",
+  "seconds_per_case": 5.0,
+  "warmup_seconds": 1.0,
+  "ctrl_dt": 0.02,
+  "num_cases": 29,
+  "fall_rate": 0.0,
+  "mean_abs_err_vx": 0.1599187807597477,
+  "mean_abs_err_vy": 0.09458737438223486,
+  "mean_abs_err_yaw": 0.2650732362064822
+}

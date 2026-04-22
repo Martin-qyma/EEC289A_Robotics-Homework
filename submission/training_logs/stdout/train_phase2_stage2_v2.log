@@ -1,0 +1,100 @@
+[run] output_dir=/home/qiyaoma/eec289_hw1/artifacts/run_extended_v2
+[run] stages=['stage_2']
+[run] initial restore checkpoint=/home/qiyaoma/eec289_hw1/artifacts/run_extended/stage_2/checkpoints/000006553600
+[stage_2] starting train: env=Go2JoystickFlatTerrain impl=jax target_steps=10000000 num_envs=1024 batch_size=256 num_evals=5
+[stage_2] restoring from checkpoint: /home/qiyaoma/eec289_hw1/artifacts/run_extended/stage_2/checkpoints/000006553600
+[stage_2] steps=0 eval_reward=21.870
+[stage_2] steps=3276800 eval_reward=25.357
+[stage_2] steps=6553600 eval_reward=27.752
+[stage_2] steps=9830400 eval_reward=29.030
+[stage_2] steps=13107200 eval_reward=29.276
+[stage_2] finished: latest_checkpoint=/home/qiyaoma/eec289_hw1/artifacts/run_extended_v2/stage_2/checkpoints/000013107200 selected_checkpoint_source=/home/qiyaoma/eec289_hw1/artifacts/run_extended_v2/stage_2/checkpoints/000013107200
+{
+  "started_at_unix": 1776833104.452015,
+  "gpu_name": "NVIDIA GeForce RTX 4090",
+  "stages": [
+    "stage_2"
+  ],
+  "restore_checkpoint_dir": "/home/qiyaoma/eec289_hw1/artifacts/run_extended/stage_2/checkpoints/000006553600",
+  "force_cpu": false,
+  "finished_at_unix": 1776833289.0911667,
+  "wallclock_sec": 184.63915181159973,
+  "stage_summaries": [
+    {
+      "stage_name": "stage_2",
+      "env_name": "Go2JoystickFlatTerrain",
+      "backend_impl": "jax",
+      "num_progress_events": 5,
+      "final_metrics": {
+        "eval/walltime": 66.36937737464905,
+        "training/sps": 3123854.6776466086,
+        "training/walltime": 64.02367162704468,
+        "training/entropy_loss": 0.11424767971038818,
+        "training/kl_mean": 0.04801744967699051,
+        "training/learning_rate": 0.00029999998514540493,
+        "training/policy_dist_max_loc": 2.1218984127044678,
+        "training/policy_dist_max_std": 0.9414510726928711,
+        "training/policy_dist_mean_loc": 0.15684741735458374,
+        "training/policy_dist_mean_std": 0.11297915130853653,
+        "training/policy_dist_min_loc": -1.2616195678710938,
+        "training/policy_dist_min_std": 0.04935309290885925,
+        "training/policy_loss": -0.002456776797771454,
+        "training/total_loss": 0.11188645660877228,
+        "training/v_loss": 9.555107681080699e-05,
+        "eval/episode_reward": 29.27607536315918,
+        "eval/episode_reward/action_rate": -12.291000366210938,
+        "eval/episode_reward/ang_vel_xy": -14.052380561828613,
+        "eval/episode_reward/dof_pos_limits": 0.0,
+        "eval/episode_reward/energy": -55.49331283569336,
+        "eval/episode_reward/feet_air_time": -0.07376570254564285,
+        "eval/episode_reward/feet_clearance": -153.99502563476562,
+        "eval/episode_reward/feet_height": -13.466571807861328,
+        "eval/episode_reward/feet_slip": -4.779555320739746,
+        "eval/episode_reward/lin_vel_z": -1.9523651599884033,
+        "eval/episode_reward/orientation": -11.76472282409668,
+        "eval/episode_reward/pose": 455.007568359375,
+        "eval/episode_reward/stand_still": -3.3723111152648926,
+        "eval/episode_reward/termination": -0.0078125,
+        "eval/episode_reward/torques": -10.8319730758667,
+        "eval/episode_reward/tracking_ang_vel": 460.94427490234375,
+        "eval/episode_reward/tracking_lin_vel": 829.0977783203125,
+        "eval/episode_swing_peak": 6.08377742767334,
+        "eval/episode_reward_std": 3.196702480316162,
+        "eval/episode_reward/action_rate_std": 2.5916993618011475,
+        "eval/episode_reward/ang_vel_xy_std": 3.866657018661499,
+        "eval/episode_reward/dof_pos_limits_std": 0.0,
+        "eval/episode_reward/energy_std": 21.782230377197266,
+        "eval/episode_reward/feet_air_time_std": 0.5541406273841858,
+        "eval/episode_reward/feet_clearance_std": 46.74333190917969,
+        "eval/episode_reward/feet_height_std": 6.1847052574157715,
+        "eval/episode_reward/feet_slip_std": 3.556334972381592,
+        "eval/episode_reward/lin_vel_z_std": 0.9881191849708557,
+        "eval/episode_reward/orientation_std": 9.145689010620117,
+        "eval/episode_reward/pose_std": 16.938953399658203,
+        "eval/episode_reward/stand_still_std": 31.49563980102539,
+        "eval/episode_reward/termination_std": 0.08804240077733994,
+        "eval/episode_reward/torques_std": 1.012270450592041,
+        "eval/episode_reward/tracking_ang_vel_std": 16.432828903198242,
+        "eval/episode_reward/tracking_lin_vel_std": 152.39810180664062,
+        "eval/episode_swing_peak_std": 4.7012739181518555,
+        "eval/avg_episode_length": 997.7109375,
+        "eval/std_episode_length": 25.796428680419922,
+        "eval/epoch_eval_time": 1.7857286930084229,
+        "eval/sps": 71679.4216843534
+      },
+      "latest_checkpoint": "/home/qiyaoma/eec289_hw1/artifacts/run_extended_v2/stage_2/checkpoints/000013107200",
+      "selected_checkpoint_source": "/home/qiyaoma/eec289_hw1/artifacts/run_extended_v2/stage_2/checkpoints/000013107200",
+      "selected_checkpoint_export": "/home/qiyaoma/eec289_hw1/artifacts/run_extended_v2/best_checkpoint",
+      "selected_checkpoint_manifest": {
+        "selection_method": "best_eval_reward",
+        "selected_step": 13107200,
+        "selected_eval_reward": 29.27607536315918,
+        "source_checkpoint_dir": "/home/qiyaoma/eec289_hw1/artifacts/run_extended_v2/stage_2/checkpoints/000013107200",
+        "exported_checkpoint_dir": "/home/qiyaoma/eec289_hw1/artifacts/run_extended_v2/best_checkpoint",
+        "exported_at_unix": 1776833289.087464
+      },
+      "compile_time_sec": 63.119340530000045,
+      "train_time_sec": 118.49863671300045
+    }
+  ]
+}
