@@ -5,3 +5,12 @@ __pycache__/
 artifacts/
 go2_pg_env/xmls/assets/
 
+# Submission staging: keep the rendered PDF (re-render after filling REPORT.md
+# TODOs), ignore the intermediate HTML, the runtime artifacts, and the tar.
+submission/REPORT.html
+submission/best_checkpoint/
+submission/public_eval_bundle/
+submission/demo_bundle/
+submission/configs/
+submission/custom_eval/
+submission.tar.gz
